@@ -33,9 +33,8 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public Product findById(Long id) {
-        return productRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException(
-                        "Producto no encontrado con id: " + id));
-    }
+public Product findById(Long id) {
+    return productRepository.findById(id)
+            .orElseThrow(() -> new ProductNotFoundException(id));
+}
 }
